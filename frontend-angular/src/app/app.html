@@ -1,0 +1,31 @@
+<h1>Media Backlog</h1>
+
+<div>
+  @for (item of mediaList; track item.id) {
+    <div>{{ item.id }} - {{ item.title }} - {{ item.type }}</div>
+  }
+</div>
+
+<label>
+  Title:
+  <input [(ngModel)]="title" />
+</label>
+
+<label>
+  Media Type:
+  <select [(ngModel)]="mediaType">
+    <option value="">Select Media Type</option>
+    @for (type of mediaTypes; track type) {
+      <option [value]="type">{{ type }}</option>
+    }
+  </select>
+</label>
+
+<button (click)="addMedia()">Add Media</button>
+
+<label>
+  ID:
+  <input [(ngModel)]="mediaId" />
+</label>
+
+<button (click)="deleteMedia()">Delete Media</button>
